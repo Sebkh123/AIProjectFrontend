@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Translation Tool</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        label, select, textarea, button { display: block; margin: 10px 0; }
+        #result { margin-top: 20px; font-weight: bold; }
+
+
+        p{
+
+            font-weight: 12;
+            opacity: 0.5;
+            font-size: 10px;
+
+        }
+
+        #suggestionsList {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+
+
+
+
+
+
+    </style>
+
+
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+
+
+
+
+
+
+</head>
+<body>
+<h1>AI Translation Tool</h1>
+
+<label for="sourceLang">From:</label>
+<select id="sourceLang">
+    <option value="English">English</option>
+    <option value="French">French</option>
+    <option value="Spanish">Spanish</option>
+    <option value="Danish">Danish</option>
+    <option value="Italian">Italian</option>
+    <option value="Portuguese">Portuguese</option>
+    <option value="Chinese">Chinese</option>
+    <option value="Arabic">Arabic</option>
+    <option value="Japanese">Japanese</option>
+    <option value="Korean">Korean</option>
+    <option value ="Danish">Danish</option>
+    <!-- Add more as needed -->
+</select>
+
+<label for="targetLang">To:</label>
+<select id="targetLang">
+    <option value="French">French</option>
+    <option value="English">English</option>
+    <option value="Spanish">Spanish</option>
+    <option value="German">German</option>
+    <option value="Italian">Italian</option>
+    <option value="Portuguese">Portuguese</option>
+    <option value="Chinese">Chinese</option>
+    <option value="Arabic">Arabic</option>
+    <option value="Japanese">Japanese</option>
+    <option value="Korean">Korean</option>
+    <option value ="Danish">Danish</option>
+    <!-- Add more as needed -->
+</select>
+
+<label for="text">Text to Translate:</label>
+<textarea id="text" rows="5" cols="50" placeholder="Enter your text here..."  oninput="showDetectedLanguage()"></textarea>
+
+<p>Detected Language : <span id="detectedLanguage"></span> </p>
+
+<button onclick="translateText()">Translate</button>
+
+
+
+
+<!-- New Textarea for translated result -->
+<label for="translatedText">Translated Text:</label>
+<textarea id="translatedText" rows="5" cols="50" placeholder="Translation will appear here..." readonly></textarea>
+
+
+
+
+
+<div id="otherSuggestions" style="margin-top: 1rem">
+
+<strong>Other suggestions:</strong>
+<ul id="suggestionsList"></ul>
+</div>
+
+<!-- Popup Modal for Definition -->
+<div id="definitionPopup" style="display:none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center;">
+    <div id="popupContent" style="background: white; padding: 20px; border-radius: 10px; width: 400px; position: relative;">
+        <span id="closePopup" style="cursor:pointer; position: absolute; top: 10px; right: 10px;">&times; Close</span>
+        <h2>Word Definition</h2>
+        <p id="definition"></p>
+    </div>
+</div>
+
+
+<label for="voiceSelect">Choose a voice:</label>
+<select id="voiceSelect">
+    <option value="EXAVITQu4vr4xnSDxMaL">Rachel</option>
+    <option value="21m00Tcm4TlvDq8ikWAM">Domi</option>
+    <option value="AZnzlk1XvdvUeBnXmlld">Bella</option>
+    <option value ="ZQe5CZNOzWyzPSCn5a3c">Ben</option>
+    <option value = "ZQe5CZNOzWyzPSCn5a3c">George</option>
+    <!-- Add more voice IDs from ElevenLabs as needed -->
+</select>
+
+<button id="speak" onclick="speakText()">
+    <span class="material-icons">mic</span>
+</button>
+
+
+
+    <div id="result"></div>
+
+<script src="index.js"></script>
+<script src ="elevenlabs.js"></script>
+<script src="suggestions.js"></script>
+
+
+
+</body>
+</html>

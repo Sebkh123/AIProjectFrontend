@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Translation Tool</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        label, select, textarea, button { display: block; margin: 10px 0; }
+        textarea { width: 100%; }
+    </style>
+</head>
+<body>
+<h1>AI Translation Tool</h1>
+
+<label for="sourceLang">From:</label>
+<select id="sourceLang">
+    <option value="English">English</option>
+    <option value="French">French</option>
+    <option value="Spanish">Spanish</option>
+    <option value="Danish">Danish</option>
+    <!-- Add more as needed -->
+</select>
+
+<!-- Search input for target language -->
+<label for="targetLangSearch">Search Target Language:</label>
+<input type="text" id="targetLangSearch" placeholder="Search target language..." oninput="filterTargetLang()">
+
+<label for="targetLang">To:</label>
+<select id="targetLang">
+    <option value="French">French</option>
+    <option value="English">English</option>
+    <option value="Spanish">Spanish</option>
+    <option value="German">German</option>
+    <!-- Add more as needed -->
+</select>
+
+<label for="text">Text to Translate:</label>
+<textarea id="text" rows="5" cols="50" placeholder="Enter your text here..."></textarea>
+
+<button onclick="translateText()">Translate</button>
+
+<!-- New Textarea for translated result -->
+<label for="translatedText">Translated Text:</label>
+<textarea id="translatedText" rows="5" cols="50" placeholder="Translation will appear here..." readonly></textarea>
+
+<script src="index.js"></script>
+</body>
+</html>
